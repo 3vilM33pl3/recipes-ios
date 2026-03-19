@@ -58,20 +58,17 @@ cd /Users/olivier/Projects/homelab/applications/recipes-ios
 open -a Xcode
 ```
 
-### Step 2: Create New Project
-1. File → New → Project
-2. iOS → App
-3. Product Name: **RecipesApp**
-4. Bundle ID: **net.metatao.recipes**
-5. Interface: **SwiftUI**
-6. Storage: **SwiftData**
-7. Save in: `/Users/olivier/Projects/homelab/applications/recipes-ios/`
+### Step 2: If Using the Parent Homelab Repo, Initialize the Submodule
+```bash
+cd /Users/olivier/Projects/homelab
+git submodule update --init applications/recipes-ios
+```
 
-### Step 3: Add Source Files
-1. Delete default `RecipesAppApp.swift` and `ContentView.swift`
-2. Drag `RecipesApp/` folder into Xcode project
-3. Select "Create groups" (not folder references)
-4. Ensure files are added to RecipesApp target
+### Step 3: Open the Existing Project
+```bash
+cd /Users/olivier/Projects/homelab/applications/recipes-ios
+open RecipesApp.xcodeproj
+```
 
 ### Step 4: Configure Capabilities
 1. Select project in navigator
@@ -85,6 +82,15 @@ open -a Xcode
 ### Step 5: Build & Run
 ```
 Cmd+R
+```
+
+## Common Failure
+
+If Xcode says `RecipesApp.xcodeproj` is missing `project.pbxproj`, you are usually looking at an uninitialized submodule directory rather than the real app checkout. Re-run:
+
+```bash
+cd /Users/olivier/Projects/homelab
+git submodule update --init applications/recipes-ios
 ```
 
 ## Key Features

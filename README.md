@@ -22,21 +22,19 @@ Native iOS application for the Recipes platform (https://recipes.metatao.net).
 
 ## Project Setup
 
-1. Open Xcode and create a new iOS App project:
-   - Product Name: `RecipesApp`
-   - Bundle Identifier: `net.metatao.recipes`
-   - Interface: SwiftUI
-   - Language: Swift
-   - Minimum Deployment: iOS 18.0
+1. If you cloned this repo through the parent `homelab` repository, initialize the submodule first:
+   ```bash
+   git submodule update --init applications/recipes-ios
+   ```
 
-2. Add the source files from `RecipesApp/` directory to your Xcode project.
+2. Open the existing `RecipesApp.xcodeproj` in Xcode.
 
 3. Configure capabilities in Xcode:
    - Go to Signing & Capabilities
    - Enable iCloud (CloudKit, Documents)
    - Enable Background Modes (Background fetch)
 
-4. Add privacy descriptions to Info.plist:
+4. Verify the privacy descriptions in `Info.plist`:
    ```xml
    <key>NSCameraUsageDescription</key>
    <string>Take photos of recipes to extract and save them</string>
@@ -105,6 +103,13 @@ The app integrates with the backend API at `https://recipes.metatao.net`:
 1. Open `RecipesApp.xcodeproj` in Xcode
 2. Select a target device (iPhone simulator or physical device)
 3. Press Cmd+R to build and run
+
+## Troubleshooting
+
+- If Xcode reports that `project.pbxproj` is missing, the `applications/recipes-ios` submodule is usually not initialized correctly. From the parent `homelab` repo, run:
+  ```bash
+  git submodule update --init applications/recipes-ios
+  ```
 
 ## Testing
 
